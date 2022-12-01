@@ -3,6 +3,11 @@ package controller;
 import entity.Student;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import util.HibernateUtil;
+
+import java.io.Serializable;
 
 public class StudentFormController {
 
@@ -25,6 +30,12 @@ public class StudentFormController {
                 txtAddress.getText(),
                 rbtnFemale.isSelected()?"Female":"Male"
         );
+
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        Serializable save = session.save(student);
+        System.out.println(save);
+        transaction.commit();
     }
 
     public void btnOnActionUpdate(ActionEvent actionEvent) {
