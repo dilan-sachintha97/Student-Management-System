@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Student;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
@@ -18,6 +19,12 @@ public class StudentFormController {
     public TableColumn colOption;
 
     public void btnOnActionSave(ActionEvent actionEvent) {
+        Student student = new Student(
+                Long.parseLong(txtId.getText()),
+                txtName.getText(),
+                txtAddress.getText(),
+                rbtnFemale.isSelected()?"Female":"Male"
+        );
     }
 
     public void btnOnActionUpdate(ActionEvent actionEvent) {
