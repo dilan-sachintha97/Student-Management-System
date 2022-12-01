@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentFormController">
+   <children>
+      <Label layoutX="23.0" layoutY="23.0" text="Student Management System">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Separator layoutX="21.0" layoutY="46.0" prefHeight="3.0" prefWidth="593.0" />
+      <TextField fx:id="txtId" layoutX="21.0" layoutY="64.0" promptText="Student ID" />
+      <TextField fx:id="txtName" layoutX="189.0" layoutY="64.0" promptText="Student Name" />
+      <TextField fx:id="txtAddress" layoutX="362.0" layoutY="64.0" prefHeight="25.0" prefWidth="254.0" promptText="Student Address" />
+      <RadioButton layoutX="21.0" layoutY="101.0" mnemonicParsing="false" text="Male">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="Gender" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbtnFemale" layoutX="96.0" layoutY="101.0" mnemonicParsing="false" selected="true" text="Female" toggleGroup="$Gender">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <JFXButton layoutX="528.0" layoutY="98.0" onAction="#btnOnActionSave" prefHeight="25.0" prefWidth="86.0" style="-fx-background-color: #7f8c8d;" text="Save" />
+      <JFXButton layoutX="439.0" layoutY="98.0" onAction="#btnOnActionUpdate" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #7f8c8d;" text="Update" />
+      <TableView fx:id="tblStudentDetails" layoutX="21.0" layoutY="155.0" prefHeight="223.0" prefWidth="593.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="93.0" text="Student ID" />
+          <TableColumn fx:id="colName" prefWidth="143.0" text="Student Name" />
+            <TableColumn fx:id="colAddress" prefWidth="174.0" text="Student Address" />
+            <TableColumn fx:id="colGender" prefWidth="90.0" text="Gender" />
+            <TableColumn fx:id="colOption" prefWidth="102.0" text="Option" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
