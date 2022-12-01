@@ -1,9 +1,24 @@
 package entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+
 public class Student {
+    @Id
+    @Column(name = "student_id", nullable = false)
     private long id;
+
+    @Column(name = "student_name")
     private String name;
+
+    @Column(name = "student_address")
     private String address;
+
+    @Column(name = "student_gender")
     private String gender;
 
     public Student(long id, String name, String address, String gender) {
