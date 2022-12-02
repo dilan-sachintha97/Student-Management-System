@@ -31,11 +31,12 @@ public class StudentFormController {
                 rbtnFemale.isSelected()?"Female":"Male"
         );
 
-        Session session = HibernateUtil.getSession();
-        Transaction transaction = session.beginTransaction();
-        Serializable save = session.save(student);
-        System.out.println(save);
-        transaction.commit();
+        try(Session session = HibernateUtil.getSession();){
+            Transaction transaction = session.beginTransaction();
+            Serializable save = session.save(student);
+            System.out.println(save);
+            transaction.commit();
+        }
     }
 
     public void btnOnActionUpdate(ActionEvent actionEvent) {
